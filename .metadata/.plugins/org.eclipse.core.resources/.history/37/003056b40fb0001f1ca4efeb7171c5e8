@@ -1,0 +1,16 @@
+package com.projeto.pedido.services;
+
+import com.projeto.pedido.entities.Order;
+
+public class ShippingService {
+	
+	public double shipment(Order order) {
+		if(order.getBasic()<100.00) {
+			return 20.00;
+		}
+		if(order.getBasic()>=100.00 && order.getBasic()<=200.00) {
+			return 12.00;
+		}
+		return 0.0;
+	}
+}

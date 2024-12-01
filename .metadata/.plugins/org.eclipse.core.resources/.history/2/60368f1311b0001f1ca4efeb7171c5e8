@@ -1,0 +1,11 @@
+package com.projeto.pedido.services;
+
+import com.projeto.pedido.entities.Order;
+
+public class OrderService {
+	
+	double discount;
+	public double total(Order order) {
+		return order.getBasic() * discount;
+	}
+}
