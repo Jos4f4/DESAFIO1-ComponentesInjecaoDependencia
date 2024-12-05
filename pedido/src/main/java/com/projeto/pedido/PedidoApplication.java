@@ -30,25 +30,17 @@ public class PedidoApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Locale.setDefault(Locale.US);
-		Scanner sc = new Scanner(System.in);
+		Order order1 = new Order(1034, 150.0, 20.0);
+		System.out.println("Pedido código: " + order1.getCode());
+		System.out.println("Valor total: " + orderService.total(order1));
 		
-		System.out.println("Dados do pedido: \n");
-		System.out.println("Código: ");
-		Integer code = sc.nextInt();
-		System.out.println("Valor básico: ");
-		double basic = sc.nextDouble();
-		System.out.println("Porcentagem de desconto: ");
-		double discount = sc.nextDouble();
+		Order order2 = new Order(2282, 800.0, 10.0);
+		System.out.println("Pedido código: " + order2.getCode());
+		System.out.println("Valor total: " + orderService.total(order2));
 		
-		Order order = new Order(code, basic, discount);		
-
-		PaymentService paymentService = new PaymentService(orderService, shippingService);
-
-		System.out.println("\n");
-		System.out.printf("Pedido código: " + order.getCode() + "\n" + "Valor total: "
-						+ paymentService.returnRequest(order));
-		sc.close();
+		Order order3 = new Order(1309, 95.90, 0.0);
+		System.out.println("Pedido código: " + order3.getCode());
+		System.out.println("Valor total: " + orderService.total(order3));
 		
 	}
 
