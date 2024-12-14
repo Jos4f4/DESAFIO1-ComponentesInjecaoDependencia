@@ -8,6 +8,6 @@ import com.projeto.pedido.entities.Order;
 public class OrderService {
 	
 	public double total(Order order) {
-		return order.getBasic() * order.getDiscount()/100;
+		return order.getBasic() - (order.getBasic()*(order.getDiscount()/100));
 	}
 }
